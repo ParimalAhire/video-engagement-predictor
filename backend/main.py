@@ -127,6 +127,10 @@ async def process_video(job_id: str, video_path: str):
         if os.path.exists(video_path):
             os.remove(video_path)
 
+@app.get("/health")
+async def health():
+    return {"status": "ok", "message": "VideoInsight API running"}
+
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
