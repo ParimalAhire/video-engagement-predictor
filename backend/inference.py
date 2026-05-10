@@ -4,8 +4,6 @@ import os
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import mixed_precision
-import torch
-import clip as clip_lib
 from scipy.ndimage import gaussian_filter1d
 from typing import Callable, Optional
 import math
@@ -13,7 +11,7 @@ import math
 # ── Constants ────────────────────────────────────────────────────────────────
 MODEL_PATH = os.path.join(os.path.dirname(__file__), "model_weights", "resnet_best.keras")
 FPS_TARGET = 2
-MAX_SEQ_LEN = 668       # p75 from training — update if your training value differs
+MAX_SEQ_LEN = 668       
 FEAT_DIM = 4096
 IMG_SIZE = 224
 
