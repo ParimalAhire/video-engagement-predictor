@@ -42,7 +42,6 @@ export function OverallScoreCard({ score, rating, videoStats }) {
             {[
               { label: 'Duration', value: videoStats.duration_str },
               { label: 'Frames analysed', value: videoStats.frames_analyzed.toLocaleString() },
-              { label: 'Model', value: 'ResNet50 + BiLSTM' },
               { label: 'FPS sampled', value: '2 FPS' },
             ].map(({ label, value }) => (
               <div key={label} className="flex justify-between items-center">

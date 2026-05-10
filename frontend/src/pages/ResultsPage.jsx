@@ -108,7 +108,6 @@ export default function ResultsPage({ result, filename, onReset }) {
         <motion.div {...fadeUp(0.3)}
           className="text-center pb-8">
           <p className="label-tag">
-            Powered by ResNet50 + BiLSTM + Transformer · Trained on TVSum50 ·
             MIT Academy of Engineering
           </p>
         </motion.div>

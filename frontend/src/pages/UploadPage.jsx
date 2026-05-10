@@ -51,14 +51,14 @@ export default function UploadPage({ onUpload }) {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-12 max-w-2xl"
         >
-          <p className="label-tag mb-4">Deep Learning · BiLSTM + Transformer</p>
+          <p className="label-tag mb-4">Engagement Analysis System</p>
           <h1 className="font-display text-5xl md:text-6xl text-ink-50 leading-tight mb-4">
             Understand your<br />
             <em className="text-ink-400 not-italic">video engagement</em>
           </h1>
           <p className="font-body text-ink-400 text-lg leading-relaxed max-w-xl mx-auto">
             Upload any video and get frame-level engagement predictions,
-            drop-off detection, and cut suggestions powered by deep learning.
+            drop-off detection, and cut suggestions.
           </p>
         </motion.div>
 
@@ -135,7 +135,6 @@ export default function UploadPage({ onUpload }) {
 
       {/* Footer */}
       <footer className="relative z-10 px-8 py-5 border-t border-ink-900/60 flex items-center justify-between">
-        <span className="label-tag">ResNet50 + BiLSTM + Transformer · TVSum50</span>
         <span className="label-tag">MIT Academy of Engineering</span>
       </footer>
     </div>

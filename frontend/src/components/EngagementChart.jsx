@@ -66,7 +66,7 @@ export default function EngagementChart({ data, dropOffPoints }) {
           <XAxis
             dataKey="timestamp"
             tickFormatter={formatTimestamp}
-            interval="preserveStartEnd"
+            interval={Math.max(1, Math.floor(data.length / 8))}
             tick={{ fontSize: 10 }}
           />
           <YAxis

@@ -128,7 +128,7 @@ def predict_engagement(features: np.ndarray, progress_cb: Optional[Callable] = N
 
 
 def detect_drop_off_points(engagement: np.ndarray, timestamps: np.ndarray,
-                            sensitivity: float = 1.5) -> list:
+                            sensitivity: float = 2.5) -> list:
     diffs = np.diff(engagement)
     negative_diffs = diffs[diffs < 0]
     if len(negative_diffs) == 0:
@@ -138,15 +138,19 @@ def detect_drop_off_points(engagement: np.ndarray, timestamps: np.ndarray,
     drop_indices = [i + 1 for i, d in enumerate(diffs) if d < threshold]
     drop_indices = [d for d in drop_indices if d < len(timestamps)]
 
+    # To this:
     result = []
     for idx in drop_indices:
+        magnitude = float(abs(diffs[idx - 1])) * 100
+        if magnitude < 3.0:   # ignore drops smaller than 3% — likely noise
+            continue
         result.append({
             "timestamp": float(timestamps[idx]),
             "timestamp_str": seconds_to_str(timestamps[idx]),
             "frame_idx": idx,
             "engagement_before": float(engagement[idx - 1]) * 100,
             "engagement_after": float(engagement[idx]) * 100,
-            "drop_magnitude": float(abs(diffs[idx - 1])) * 100,
+            "drop_magnitude": round(magnitude, 1),
         })
 
     return sorted(result, key=lambda x: x["drop_magnitude"], reverse=True)
